@@ -18,7 +18,7 @@ def main():
 
 @st.cache
 def load_data():
-    df = data.cars()
+    df = pd.read_csv(st.file_uploader(type=['csv'], accept_multiple_files=False,))
     return df
 
 def visualize_data(df, x_axis, y_axis):
