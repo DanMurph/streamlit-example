@@ -21,8 +21,7 @@ def visualize_data(df, x_axis, y_axis):
     graph = alt.Chart(df).mark_circle(size=60).encode(
         x=x_axis,
         y=y_axis,
-        color='Origin',
-        tooltip=['Name', 'Origin', 'Horsepower', 'Miles_per_Gallon']
+        color='Origin'
     ).interactive()
 
     st.write(graph)
