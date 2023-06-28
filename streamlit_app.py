@@ -1,6 +1,7 @@
 from vega_datasets import data
 import streamlit as st
 import altair as alt
+import pandas as pd
 
 def main():
     df = load_data()
