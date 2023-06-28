@@ -15,7 +15,7 @@ def main():
         st.title("Data Exploration")
         x_axis = st.selectbox("Choose a variable for the x-axis", df.columns, index=3)
         y_axis = st.selectbox("Choose a variable for the y-axis", df.columns, index=4)
-        st.bar_chart(data=df, *, x=x_axis, y=y_axis, width=0, height=0, use_container_width=True)
+        st.bar_chart(data=df, x=x_axis, y=y_axis, width=0, height=0, use_container_width=True)
 
 
 if __name__ == "__main__":
