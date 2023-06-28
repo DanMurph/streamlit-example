@@ -2,6 +2,7 @@ from vega_datasets import data
 import streamlit as st
 import altair as alt
 import pandas as pd
+import plotly.express as px
 
 def main():
     df = pd.read_csv(st.file_uploader("Please upload a file for analysis",type=['csv'], accept_multiple_files=False,))
@@ -15,7 +16,8 @@ def main():
         st.title("Data Exploration")
         x_axis = st.selectbox("Choose a variable for the x-axis", df.columns, index=3)
         y_axis = st.selectbox("Choose a variable for the y-axis", df.columns, index=4)
-        st.bar_chart(data=df, x=x_axis, y=y_axis, width=0, height=0, use_container_width=True)
+        fig = px.scatter(df,x="gdpPercap",y="lifeExp")
+        st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
 if __name__ == "__main__":
