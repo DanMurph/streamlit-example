@@ -17,7 +17,7 @@ def main():
         x_axis = st.selectbox("Choose a variable for the x-axis", df.columns, index=3)
         y_axis = st.selectbox("Choose a variable for the y-axis", df.columns, index=4)
         print(x_axis)
-        fig = px.scatter(df,x=x_axis,y=y_axis)
+        fig = px.bar(df,x=x_axis,y=y_axis)
         st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
