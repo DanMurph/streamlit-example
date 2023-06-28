@@ -4,7 +4,7 @@ import altair as alt
 import pandas as pd
 
 def main():
-    df = load_data()
+    df = pd.read_csv(st.file_uploader("Please upload a file for analysis",type=['csv'], accept_multiple_files=False,))
     page = st.sidebar.selectbox("Choose a page", ["Homepage", "Exploration"])
 
     if page == "Homepage":
@@ -16,11 +16,6 @@ def main():
         x_axis = st.selectbox("Choose a variable for the x-axis", df.columns, index=3)
         y_axis = st.selectbox("Choose a variable for the y-axis", df.columns, index=4)
         visualize_data(df, x_axis, y_axis)
-
-@st.cache
-def load_data():
-    df = pd.read_csv(st.file_uploader("Please upload a file for analysis",type=['csv'], accept_multiple_files=False,))
-    return df
 
 def visualize_data(df, x_axis, y_axis):
     graph = alt.Chart(df).mark_circle(size=60).encode(
